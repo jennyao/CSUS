@@ -27,18 +27,11 @@ public class Game extends Form implements Runnable {
   private MapView mv;
   private ScoreView sv;
   private boolean playMode; 
-//  private Media m;
-//  public Sound bgSound = new Sound("background.WAV", gw);
   private int duration = 1000;
   private Toolbar myToolbar = new Toolbar();
-  //private TextField myTF = new TextField(); 
-  //private Form topContainer = new Form(new BoxLayout(BoxLayout.X_AXIS));
   private Container topContainer = new Container(new BoxLayout(BoxLayout.Y_AXIS));
-//  private Style s = UIManager.getInstance().getComponentStyle("TitleCommand");
-//  private FontImage icon = FontImage.createMaterial(FontImage.MATERIAL_WARNING, s);
   private Container leftContainer = new Container(new BoxLayout(BoxLayout.Y_AXIS));
   private Container bottomContainer = new Container(new FlowLayout(Component.CENTER));
-  //private Container centerContainer = new Container();
   
   private Button leftButton = new Button();
   private Button rightButton = new Button();
@@ -52,7 +45,6 @@ public class Game extends Form implements Runnable {
   private Button pauseButton = new Button();
   private Button positionButton = new Button();
   
-  //private SideCommand sideMenuCmd;
   private AccelerateCommand accelerateCmd;
   private SoundCommand soundCmd;
   private AboutCommand aboutCmd;
@@ -117,10 +109,6 @@ public class Game extends Form implements Runnable {
     //centerContainer.add(mv);
     /******************************************/
     
-//    x = x - getParent().getAbsoluteX();
-//    y = y - getParent().getAbsoluteY();
-//    Point pPtrRelPrnt = new Point(x, y);
-//    Point pCmpRelPrnt = new Point(getX(), getY());
     //Commands
     accelerateCmd = new AccelerateCommand("Accelerate", gw);
     soundCmd = new SoundCommand("Sound ON/OFF", gw);
@@ -165,10 +153,6 @@ public class Game extends Form implements Runnable {
     this.addKeyListener('r', rightCmd);
     this.addKeyListener('f', fuelCmd);
     
-//    gw.setHeight(mv.getHeight());
-//    gw.setWidth(mv.getWidth());
-//    System.out.println("height: " + (mv.getHeight()));
-//    System.out.println("width: " + (mv.getWidth()));
     pCmpRelPrnt = new Point(mv.getWidth(), mv.getHeight());
     gw.init(mv.getWidth(), mv.getHeight());
     gw.addObserver(mv);
