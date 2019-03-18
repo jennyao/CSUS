@@ -6,11 +6,9 @@ import com.mycompany.a3.objects.FuelCans;
 import com.mycompany.a3.objects.GameObject;
 import com.mycompany.a3.objects.GameObjectCollection;
 import com.mycompany.a3.objects.ICollider;
-//import com.mycompany.a3.objects.IDrawable;
 import com.mycompany.a3.objects.IIterator;
 import com.mycompany.a3.objects.IMoveable;
 import com.mycompany.a3.objects.ISelectable;
-//import com.mycompany.a3.objects.Moveable;
 import com.mycompany.a3.objects.NonPlayerCar;
 import com.mycompany.a3.objects.Pylon;
 import com.mycompany.a3.sound.BGSound;
@@ -18,7 +16,6 @@ import com.mycompany.a3.sound.Sound;
 import com.codename1.charts.util.ColorUtil;
 import com.codename1.ui.Dialog;
 import com.codename1.ui.geom.Dimension;
-//import com.codename1.ui.Toolbar;
 import com.codename1.ui.geom.Point;
 
 import java.util.Observable;
@@ -30,7 +27,6 @@ public class GameWorld extends Observable {
 	private static int lifeNum;
 	private static boolean soundMenu = true;
 	private static GameObjectCollection objectList = new GameObjectCollection();
-	//private static IStrategy npcStrategy = new NPCCarStrategy(this, npc1); //int for no
 	private static int npcStrategyNum = 1;
 	public boolean isPlaying = true;
 	
@@ -93,16 +89,9 @@ public class GameWorld extends Observable {
 		
 		
 		int xLoc, yLoc;
-//		xLoc = origin.getX() + Rnd.nextInt(wid);
-//		yLoc = origin.getY() + Rnd.nextInt(hght);
-//		Loc.setX(xLoc);
-//		Loc.setY(yLoc);
-//		System.out.println("sizeCar: " + sizeCar + "\nxLoc: " + xLoc + "\nyLoc: " + yLoc);
-//		Loc = new Point (Rnd.nextInt(width),Rnd.nextInt(height));
 		
 		//Create 1 Car
 		Loc = new Point (150,150);
-//		Loc = new Point (Rnd.nextInt(wid),Rnd.nextInt(hght));
 		c.setColor(carCol);
 		c.setSize(sizeCar);
 		c.setLocation(Loc);
@@ -122,9 +111,7 @@ public class GameWorld extends Observable {
 		//heading initialized to a random value (btw 0-359)
 		npc1.setColor(ColorUtil.BLACK);
 		npc1.setSize(sizeCar);
-		//Loc = new Point(0,sizeCar * 2);
 		Loc = new Point (150,300);
-//		Loc = new Point (Rnd.nextInt(wid),Rnd.nextInt(hght));
 		npc1.setLocation(Loc);
 		npc1.setHeading(Rnd.nextInt(360));
 		npc1.setStrategy(new NPCCarStrategy(objectList, npc1));
@@ -132,9 +119,7 @@ public class GameWorld extends Observable {
 		
 		npc2.setColor(ColorUtil.BLACK);
 		npc2.setSize(sizeCar);
-		//Loc = new Point(sizeCar * 2, 0);
 		Loc = new Point (150,400);
-//		Loc = new Point (Rnd.nextInt(wid),Rnd.nextInt(hght));
 		npc2.setLocation(Loc);
 		npc2.setHeading(Rnd.nextInt(360));
 		npc2.setStrategy(new NPCCarStrategy(objectList, npc2));
@@ -142,9 +127,7 @@ public class GameWorld extends Observable {
 		
 		npc3.setColor(ColorUtil.BLACK);
 		npc3.setSize(sizeCar);
-		//Loc = new Point(sizeCar * 2, 0);
 		Loc = new Point (150,500);
-//		Loc = new Point (Rnd.nextInt(wid),Rnd.nextInt(hght));
 		npc3.setLocation(Loc);
 		npc3.setHeading(Rnd.nextInt(360));
 		npc3.setStrategy(new NPCCarStrategy(objectList, npc3));
@@ -169,9 +152,6 @@ public class GameWorld extends Observable {
 		//}
 		//Create 2 Fuel Cans
 		//for(int i = 1; i <= numFuelCans; i++) {
-//			xLoc = origin.getX() + Rnd.nextInt(wid);
-//			yLoc = origin.getY() + Rnd.nextInt(hght);
-			//Loc = new Point (Rnd.nextInt(width),Rnd.nextInt(height));
 			
 			//Loc = new Point (xLoc,yLoc);
 			sizeFuelCans = 10 + Rnd.nextInt(50);
@@ -220,14 +200,13 @@ public class GameWorld extends Observable {
 	}
 
 	public void update(int time) {
-		clockTime += time/1000;							//increase clock time
+		clockTime += time/1000;		//increase clock time
 		
 		//move all moveable objects
 		IIterator i = objectList.getIterator();
 		while (i.hasNext()) {
 			GameObject o = i.getNext();
 			if (o instanceof IMoveable) {
-//				System.out.println(((IMoveable) o).getName());
 				((IMoveable) o).move(time, new Dimension (this.width, this.height));
 		}	
 		
@@ -263,15 +242,6 @@ public class GameWorld extends Observable {
 				}
 			}
 		}
-//		public void ifSelected() {
-//			IIterator i = objectList.getIterator();
-//			while (i.hasNext()) {
-//				GameObject o = i.getNext();
-//				if (o instanceof ISelectable) {
-////					System.out.println(((ISelectable) o).getName());
-//					((ISelectable) o).contains(pPtrRelPrnt, pCmpRelPrnt);
-//			}	
-//		}
 		if (!this.getCar().canMove() && lifeNum > 0) 	{
 			this.getCar().setSpeed(0);
 			lifeNum--;
