@@ -37,8 +37,6 @@ First Scheme: The parent waits for all children.
 Second Scheme: The parent keeps checking on the children in a busy waiting loop and terminates as soon as one child finds a zero or when all children have completed scanning their divisions. The parent must then cancel all threads.
 Third Scheme: The parent waits on a semaphore that gets signaled by one of the children either when that child finds a zero or when it detects that all children have completed scanning their divisions. The parent must then cancel all threads.
 
-
-
 CPUSchedulerSimulator
 
 This simulates the following CPU scheduling algorithms all while assuming a single CPU
@@ -47,5 +45,18 @@ Round Robin (RR), Shortest Job First (SJF), Priority Scheduling without Preempti
 VMSimulator
 
 This simulates a simple virtual memory system using page replacement policies: First-In First Out (FIFO), Optimal, and Least Recently Used (LRU)
+
+CSC177
+
+Mining my Food
+
+This was a python project with the purpose of applying data mining/machine learning techniques to one or more data sets, going through the following steps:
+	• identifying data set(s)
+	• deciding on what you want to achieve with data mining
+	• choosing appropriate machine learning algorithms
+	• implementing your methods
+	• evaluating your methods on your data set(s)
+	• reporting conclusions by writing a paper
+Link to the powerpoint: http://bit.ly/30oe7Dg
 
 
